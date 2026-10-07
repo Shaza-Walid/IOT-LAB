@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IOT LAB</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <h1>Smart Light Experiments</h1>
+            <p>Explore different ways to control a light</p>
+        </header>
+        <!-- Main Content -->
+        <main class="experiments-container">
+            <!-- ========================= Experiment 1 ========================== -->
+            <section class="experiment">
+                <div class="experiment-header">
+                    <span class="experiment-number">01</span>
+                    <div>
+                        <h2>ON / OFF Control</h2>
+                        <p>Turn the light on or off</p>
+                    </div>
+                </div>
+                <!-- First Bulb -->
+                <div class="bulb-area">
+                    <div class="bulb bulb-one" id="bulbOne">
+                        <div class="bulb-highlight"></div>
+                    </div>
+                    <div class="bulb-base"></div>
+                </div>
+                <!-- Button -->
+                <button id="powerButton" class="power-button" type="button">
+                    Turn On
+                </button>
+                <p id="powerStatus" class="status">Light is OFF</p>
+            </section>
+            <!-- ========================= Experiment 2 ========================== -->
+            <section class="experiment">
+                <div class="experiment-header">
+                    <span class="experiment-number">02</span>
+                    <div>
+                        <h2>Brightness Control</h2>
+                        <p>Adjust the light intensity</p>
+                    </div>
+                </div>
+                <!-- Second Bulb -->
+                <div class="bulb-area">
+                    <div class="bulb bulb-two" id="bulbTwo">
+                        <div class="bulb-highlight"></div>
+                    </div>
+                    <div class="bulb-base"></div>
+                </div>
+                <!-- Brightness Value -->
+                <div class="brightness-value">
+                    <span id="brightnessValue">0</span>
+                    <small>%</small>
+                </div>
+                <!-- Range -->
+                <input
+                    type="range"
+                    id="brightness"
+                    min="0"
+                    max="100"
+                    value="0"
+                >
+                <div class="range-labels">
+                    <span>0%</span>
+                    <span>50%</span>
+                    <span>100%</span>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer>
+            <p>Smart Light Experiments &copy; 2026</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+
+</html>

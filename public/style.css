@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+/* Body */
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: #ffffff;
+}
+
+/* Header */
+header{
+    text-align: center;
+    padding: 35px 20px;
+    background: #1f2937;
+    border-bottom: 1px solid #374151;
+}
+
+header h1{
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+header p{
+    color: #9ca3af;
+    font-size: 16px;
+}
+
+/* Main */
+.experiments-container{
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Experiment Card */
+.experiment{
+    min-height: 560px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 20px;
+}
+
+
+/* Experiment Header */
+.experiment-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+    margin-bottom: 35px;
+}
+
+.experiment-number{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #374151;
+    color: #facc15;
+    font-weight: bold;
+}
+
+.experiment-header h2{
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.experiment-header p{
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* Bulb */
+.bulb-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 0 30px;
+}
+
+/* Main bulb */
+.bulb{
+    width: 145px;
+    height: 145px;
+    position: relative;
+    border-radius: 50%;
+    background: #374151;
+    transition: background-color 0.3s ease,box-shadow 0.3s ease;
+}
+
+/* Bulb highlight */
+.bulb-highlight{
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    top: 25px;
+    left: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* Connection */
+.bulb::after{
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 22px;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    background: #4b5563;
+    border-radius: 5px;
+}
+
+/* Bulb base */
+.bulb-base{
+    width: 55px;
+    height: 58px;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #6b7280 0px,
+            #6b7280 7px,
+            #374151 7px,
+            #374151 11px
+        );
+    border-radius: 5px 5px 12px 12px;
+}
+
+/* ON / OFF Button */
+.power-button{
+    width: 180px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background: red;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.power-button:hover{
+    transform: translateY(-2px);
+}
+
+.power-button.off{
+    background: #374151;
+}
+
+/* Status */
+.status{
+    margin-top: 15px;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+
+/* Brightness */
+.brightness-value{
+    margin-top: auto;
+    margin-bottom: 20px;
+    font-size: 55px;
+    font-weight: bold;
+    color: #facc15;
+}
+
+.brightness-value small{
+    font-size: 24px;
+    color: #9ca3af;
+}
+
+
+/* Range */
+input[type="range"]{
+    width: 85%;
+    height: 8px;
+    cursor: pointer;
+    accent-color: #facc15;
+}
+
+/* Range labels */
+.range-labels{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-bottom: auto;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Footer */
+footer{
+    padding: 22px;
+    text-align: center;
+    background: #1f2937;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* Responsive */
+
+@media(max-width: 750px){
+    .experiments-container {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+    }.experiment{
+        min-height: 500px;
+    }header h1{
+        font-size: 26px;
+    }
+}
