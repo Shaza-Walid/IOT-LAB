@@ -1,10 +1,13 @@
-const express = require('express');
+const express = require('express')
 const app = express()
 
 const PORT = 3000
 
+// Serve style.css and script.js from the views folder
+app.use(express.static(__dirname+"/public"));
+
 app.get('/',function(req,res){
-    res.sendFile(__dirname+"/views/index.html");
+    res.sendFile(__dirname+"/public/index.html");
 });
 
 const server = app.listen(PORT,function(){
@@ -14,16 +17,28 @@ const server = app.listen(PORT,function(){
 const SocketServer = require('ws').Server;
 const wss = new SocketServer({ server });
 
-let button_status = "off";
+var button_status = "off";   // Experiment 1: "on" / "off"
+var brightness_status = "0"; // Experiment 2: 0 - 100
 
 wss.on('connection', function(ws){
 	console.log('Client connected');
+	
+	// Send the current state of both experiments to the new client
 	ws.send(button_status);
+	ws.send(brightness_status);
+
 	ws.on('message', function(msg){
-		button_status = msg.toString();
-		console.log(button_status);
-		broadcast(button_status);
+		msg = msg.toString();
+		console.log(msg);
+
+		if(msg == "on" || msg == "off"){
+			button_status = msg;
+		}else{
+			brightness_status = msg;
+		}
+		broadcast(msg);
 	});
+	
 	ws.on('close', function(){
 		console.log('Client disconnected');
 	});

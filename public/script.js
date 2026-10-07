@@ -50,6 +50,7 @@ ws.onmessage = function(event){
         var value = Number(msg);        // Convert the received message to a number
         // Check if the message is a brightness value
         if(value >= 0 && value <= 100){
+            brightness.value = value;            // Move the slider to the received value
             brightnessValue.textContent = value;            // Show brightness value
             var intensity = value / 100;            // Convert 0 - 100 to 0 - 1
             bulbTwo.style.backgroundColor = `rgba(250, 204, 21, ${intensity})`;            // Change bulb brightness
