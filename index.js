@@ -17,8 +17,11 @@ const server = app.listen(PORT,function(){
 const SocketServer = require('ws').Server;
 const wss = new SocketServer({ server });
 
-var button_status = "off";   // Experiment 1: "on" / "off"
-var brightness_status = "0"; // Experiment 2: 0 - 100
+let button_status = "off";   // Experiment 1: "on" / "off"
+let brightness_status = "0"; // Experiment 2: 0 - 100
+let blue_status = "blue_off";   // Experiment 3: "blue_on" / "blue_off"
+let red_status = "red_off";     // Experiment 3: "red_on" / "red_off"
+let green_status = "green_off"; // Experiment 3: "green_on" / "green_off"
 
 wss.on('connection', function(ws){
 	console.log('Client connected');
@@ -26,6 +29,9 @@ wss.on('connection', function(ws){
 	// Send the current state of both experiments to the new client
 	ws.send(button_status);
 	ws.send(brightness_status);
+	ws.send(blue_status);
+	ws.send(red_status);
+	ws.send(green_status);
 
 	ws.on('message', function(msg){
 		msg = msg.toString();
@@ -33,6 +39,12 @@ wss.on('connection', function(ws){
 
 		if(msg == "on" || msg == "off"){
 			button_status = msg;
+		}else if(msg == "blue_on" || msg == "blue_off"){
+			blue_status = msg;
+		}else if(msg == "red_on" || msg == "red_off"){
+			red_status = msg;
+		}else if(msg == "green_on" || msg == "green_off"){
+			green_status = msg;
 		}else{
 			brightness_status = msg;
 		}
