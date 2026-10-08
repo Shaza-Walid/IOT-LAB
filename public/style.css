@@ -318,27 +318,3 @@ footer{
         grid-template-columns: 1fr;
     }
 }
-
-/* ==========================================================
-   Overrides للألوان اللي الـ JS بيحطها inline
-   (عشان نغيّر الألوان من غير ما نلمس script.js)
-   ========================================================== */
-
-/* الزرار لما النور يبقى شغال (JS بيحط green) */
-/* .power-button[style*="green"],
-.rgb-button[style*="green"]{
-    background-color: #FFDDD2 !important;
-    color: #006D77 !important;
-    box-shadow: inset 0 0 0 2px #006D77;
-}
-
-/* الزرار لما النور يبقى طافي (JS بيحط red)
-.power-button[style*="red"],
-.rgb-button[style*="red"]{
-    background-color: #006D77 !important;
-} */
-
-/* اللمبة وهي طافية (JS بيحط #374151)
-.bulb[style*="rgb(55, 65, 81)"]{
-    background-color: #83C5BE !important;
-} */
