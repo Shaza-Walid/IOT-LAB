@@ -10,25 +10,26 @@ body{
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    background: #111827;
-    color: #ffffff;
+    background: #EDF6F9;
+    color: #006D77;
 }
 
 /* Header */
 header{
     text-align: center;
     padding: 35px 20px;
-    background: #1f2937;
-    border-bottom: 1px solid #374151;
+    background: #006D77;
+    border-bottom: 1px solid #83C5BE;
 }
 
 header h1{
     font-size: 32px;
     margin-bottom: 8px;
+    color: #EDF6F9;
 }
 
 header p{
-    color: #9ca3af;
+    color: #FFDDD2;
     font-size: 16px;
 }
 
@@ -52,8 +53,8 @@ header p{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: #1f2937;
-    border: 1px solid #374151;
+    background: #ffffff;
+    border: 1px solid #83C5BE;
     border-radius: 20px;
 }
 
@@ -75,8 +76,8 @@ header p{
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    background: #374151;
-    color: #facc15;
+    background: #FFDDD2;
+    color: #006D77;
     font-weight: bold;
 }
 
@@ -86,7 +87,7 @@ header p{
 }
 
 .experiment-header p{
-    color: #9ca3af;
+    color: #4a7c82;
     font-size: 14px;
 }
 
@@ -104,7 +105,7 @@ header p{
     height: 145px;
     position: relative;
     border-radius: 50%;
-    background: #374151;
+    background: #83C5BE;
     transition: background-color 0.3s ease,box-shadow 0.3s ease;
 }
 
@@ -116,11 +117,11 @@ header p{
     top: 25px;
     left: 30px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.45);
 }
 
 /* Connection */
-.bulb::after{
+.bulb::after {
     content: "";
     position: absolute;
     width: 45px;
@@ -128,23 +129,39 @@ header p{
     left: 50%;
     bottom: -10px;
     transform: translateX(-50%);
-    background: #4b5563;
+    background: linear-gradient(
+        to bottom,
+        #e5e7eb 0%,
+        #9ca3af 30%,
+        #6b7280 60%,
+        #d1d5db 100%
+    );
+    border: 1px solid #6b7280;
     border-radius: 5px;
+
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Bulb base */
-.bulb-base{
+.bulb-base {
     width: 55px;
     height: 58px;
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            #6b7280 0px,
-            #6b7280 7px,
-            #374151 7px,
-            #374151 11px
-        );
+    background: repeating-linear-gradient(
+        to bottom,
+        #d1d5db 0px,
+        #d1d5db 5px,
+        #6b7280 5px,
+        #6b7280 7px,
+        #9ca3af 7px,
+        #9ca3af 10px
+    );
+    border: 1px solid #6b7280;
     border-radius: 5px 5px 12px 12px;
+    box-shadow:
+        inset 2px 0 4px rgba(255, 255, 255, 0.5),
+        inset -2px 0 4px rgba(0, 0, 0, 0.12);
 }
 
 /* ON / OFF Button */
@@ -153,7 +170,7 @@ header p{
     padding: 14px 20px;
     border: none;
     border-radius: 10px;
-    background: red;
+    background: #006D77;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -166,13 +183,13 @@ header p{
 }
 
 .power-button.off{
-    background: #374151;
+    background: #83C5BE;
 }
 
 /* Status */
 .status{
     margin-top: 15px;
-    color: #9ca3af;
+    color: #4a7c82;
     font-size: 14px;
 }
 
@@ -188,7 +205,7 @@ header p{
 
 .brightness-value small{
     font-size: 24px;
-    color: #9ca3af;
+    color: #facc15;
 }
 
 
@@ -197,7 +214,7 @@ input[type="range"]{
     width: 85%;
     height: 8px;
     cursor: pointer;
-    accent-color: #facc15;
+    accent-color: #006D77;
 }
 
 /* Range labels */
@@ -207,7 +224,7 @@ input[type="range"]{
     justify-content: space-between;
     margin-top: 12px;
     margin-bottom: auto;
-    color: #9ca3af;
+    color: #4a7c82;
     font-size: 13px;
 }
 
@@ -236,7 +253,7 @@ input[type="range"]{
 
 /* RGB Bulbs */
 .rgb-bulb {
-    background: #374151;
+    background: #83C5BE;
     transition:
         background-color 0.3s ease,
         box-shadow 0.3s ease;
@@ -259,17 +276,17 @@ input[type="range"]{
 
 /* Blue Button */
 .blue-button {
-    background: red;
+    background: #006d77;
 }
 
 /* Red Button */
 .red-button {
-    background: red;
+    background: #006D77;
 }
 
 /* Green Button */
 .green-button {
-    background: red;
+    background: #006D77;
 }
 
 /* Button Hover */
@@ -281,14 +298,13 @@ input[type="range"]{
 footer{
     padding: 22px;
     text-align: center;
-    background: #1f2937;
-    border-top: 1px solid #374151;
-    color: #9ca3af;
+    background: #006D77;
+    border-top: 1px solid #83C5BE;
+    color: #EDF6F9;
     font-size: 14px;
 }
 
 /* Responsive */
-
 @media(max-width: 750px){
     .experiments-container {
         grid-template-columns: 1fr;
@@ -302,3 +318,27 @@ footer{
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================
+   Overrides للألوان اللي الـ JS بيحطها inline
+   (عشان نغيّر الألوان من غير ما نلمس script.js)
+   ========================================================== */
+
+/* الزرار لما النور يبقى شغال (JS بيحط green) */
+/* .power-button[style*="green"],
+.rgb-button[style*="green"]{
+    background-color: #FFDDD2 !important;
+    color: #006D77 !important;
+    box-shadow: inset 0 0 0 2px #006D77;
+}
+
+/* الزرار لما النور يبقى طافي (JS بيحط red)
+.power-button[style*="red"],
+.rgb-button[style*="red"]{
+    background-color: #006D77 !important;
+} */
+
+/* اللمبة وهي طافية (JS بيحط #374151)
+.bulb[style*="rgb(55, 65, 81)"]{
+    background-color: #83C5BE !important;
+} */

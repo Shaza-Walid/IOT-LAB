@@ -14,7 +14,7 @@ var powerStatus = document.getElementById("powerStatus");
 
 // Button click
 powerButton.onclick = function(){
-    if(this.style.backgroundColor == "red"){
+    if(this.style.backgroundColor == "#006d77"){
         ws.send("on");        // Send ON command to the server
     }else{
         ws.send("off");       // Send OFF command to the server
@@ -42,7 +42,7 @@ var blueBulb = document.getElementById("blueBulb");
 var blueButton = document.getElementById("blueButton");
 var blueStatus = document.getElementById("blueStatus");
 blueButton.onclick = function(){
-    if(this.style.backgroundColor == "red"){
+    if(this.style.backgroundColor == "#006d77"){
         ws.send("blue_on");        // Send Blue ON command
     }else{
         ws.send("blue_off");        // Send Blue OFF command
@@ -54,7 +54,7 @@ var redBulb = document.getElementById("redBulb");
 var redButton = document.getElementById("redButton");
 var redStatus = document.getElementById("redStatus");
 redButton.onclick = function(){
-    if(this.style.backgroundColor == "red"){
+    if(this.style.backgroundColor == "#006d77"){
         ws.send("red_on");        // Send Red ON command
     }else{
         ws.send("red_off");        // Send Red OFF command
@@ -66,7 +66,7 @@ var greenBulb = document.getElementById("greenBulb");
 var greenButton = document.getElementById("greenButton");
 var greenStatus = document.getElementById("greenStatus");
 greenButton.onclick = function(){
-    if (this.style.backgroundColor == "red") {
+    if (this.style.backgroundColor == "#006d77") {
         ws.send("green_on");        // Send Green ON command
     }else{
         ws.send("green_off");        // Send Green OFF command
@@ -84,13 +84,13 @@ ws.onmessage = function(event){
     if(msg == "on"){
         bulbOne.style.backgroundColor = "#facc15";
         bulbOne.style.boxShadow = "0 0 25px #facc15, 0 0 60px rgba(250, 204, 21, 0.5)";
-        powerButton.style.backgroundColor = "green";
+        powerButton.style.backgroundColor = "#FFDDD2";
         powerButton.textContent = "Turn Off";
         powerStatus.textContent = "Light is ON";
     }else if(msg == "off"){
-        bulbOne.style.backgroundColor = "#374151";
+        bulbOne.style.backgroundColor = "#83C5BE";
         bulbOne.style.boxShadow = "none";
-        powerButton.style.backgroundColor = "red";
+        powerButton.style.backgroundColor = "#006d77";
         powerButton.textContent = "Turn On";
         powerStatus.textContent = "Light is OFF";
     }
@@ -116,13 +116,13 @@ ws.onmessage = function(event){
     else if(msg == "blue_on"){
         blueBulb.style.backgroundColor = "#3b82f6";
         blueBulb.style.boxShadow = "0 0 25px #3b82f6, 0 0 60px rgba(59, 130, 246, 0.5)";
-        blueButton.style.backgroundColor = "green";
+        blueButton.style.backgroundColor = "#FFDDD2";
         blueButton.textContent = "Turn Off";
         blueStatus.textContent = "Blue Light is ON";
     }else if(msg == "blue_off"){
-        blueBulb.style.backgroundColor = "#374151";
+        blueBulb.style.backgroundColor = "#83C5BE";
         blueBulb.style.boxShadow = "none";
-        blueButton.style.backgroundColor = "red";
+        blueButton.style.backgroundColor = "#006d77";
         blueButton.textContent = "Turn On";
         blueStatus.textContent = "Blue Light is OFF";
     }
@@ -132,13 +132,13 @@ ws.onmessage = function(event){
     else if(msg == "red_on"){
         redBulb.style.backgroundColor = "#ef4444";
         redBulb.style.boxShadow = "0 0 25px #ef4444, 0 0 60px rgba(239, 68, 68, 0.5)";
-        redButton.style.backgroundColor = "green";
+        redButton.style.backgroundColor = "#FFDDD2";
         redButton.textContent = "Turn Off";
         redStatus.textContent = "Red Light is ON";
     }else if(msg == "red_off"){
-        redBulb.style.backgroundColor = "#374151";
+        redBulb.style.backgroundColor = "#83C5BE";
         redBulb.style.boxShadow = "none";
-        redButton.style.backgroundColor = "red";
+        redButton.style.backgroundColor = "#006d77";
         redButton.textContent = "Turn On";
         redStatus.textContent = "Red Light is OFF";
     }
@@ -148,13 +148,13 @@ ws.onmessage = function(event){
     else if(msg == "green_on"){
         greenBulb.style.backgroundColor = "#22c55e";
         greenBulb.style.boxShadow = "0 0 25px #22c55e, 0 0 60px rgba(34, 197, 94, 0.5)";
-        greenButton.style.backgroundColor = "green";
+        greenButton.style.backgroundColor = "#FFDDD2";
         greenButton.textContent = "Turn Off";
         greenStatus.textContent = "Green Light is ON";
     }else if(msg == "green_off"){
-        greenBulb.style.backgroundColor = "#374151";
+        greenBulb.style.backgroundColor = "#83C5BE";
         greenBulb.style.boxShadow = "none";
-        greenButton.style.backgroundColor = "red";
+        greenButton.style.backgroundColor = "#006d77";
         greenButton.textContent = "Turn On";
         greenStatus.textContent = "Green Light is OFF";
     }
