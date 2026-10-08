@@ -21,6 +21,58 @@ powerButton.onclick = function(){
     }
 };
 
+// ======================================
+// Experiment 2: Brightness
+// ======================================
+var bulbTwo = document.getElementById("bulbTwo");
+var brightness = document.getElementById("brightness");
+var brightnessValue = document.getElementById("brightnessValue");
+// Slider change
+brightness.oninput = function(){
+    var value = this.value;    // Get the current slider value
+    ws.send(value);    // Send brightness value to the server
+};
+
+// ======================================
+// Experiment 3: RGB Lights
+// ======================================
+
+// Blue Light
+var blueBulb = document.getElementById("blueBulb");
+var blueButton = document.getElementById("blueButton");
+var blueStatus = document.getElementById("blueStatus");
+blueButton.onclick = function(){
+    if(this.style.backgroundColor == "red"){
+        ws.send("blue_on");        // Send Blue ON command
+    }else{
+        ws.send("blue_off");        // Send Blue OFF command
+    }
+};
+
+// Red Light
+var redBulb = document.getElementById("redBulb");
+var redButton = document.getElementById("redButton");
+var redStatus = document.getElementById("redStatus");
+redButton.onclick = function(){
+    if(this.style.backgroundColor == "red"){
+        ws.send("red_on");        // Send Red ON command
+    }else{
+        ws.send("red_off");        // Send Red OFF command
+    }
+};
+
+// Green Light
+var greenBulb = document.getElementById("greenBulb");
+var greenButton = document.getElementById("greenButton");
+var greenStatus = document.getElementById("greenStatus");
+greenButton.onclick = function(){
+    if (this.style.backgroundColor == "red") {
+        ws.send("green_on");        // Send Green ON command
+    }else{
+        ws.send("green_off");        // Send Green OFF command
+    }
+};
+
 
 // Receive message from server
 ws.onmessage = function(event){
@@ -46,7 +98,7 @@ ws.onmessage = function(event){
     // ==================================
     // Experiment 2
     // ==================================
-    else{
+    else if(!isNaN(msg)){        // Check if the message is a number    
         var value = Number(msg);        // Convert the received message to a number
         // Check if the message is a brightness value
         if(value >= 0 && value <= 100){
@@ -58,18 +110,60 @@ ws.onmessage = function(event){
             bulbTwo.style.boxShadow = `0 0 ${glow}px rgba(250, 204, 21, ${intensity})`;
         }
     }
-};
-
-// ======================================
-// Experiment 2: Brightness
-// ======================================
-var bulbTwo = document.getElementById("bulbTwo");
-var brightness = document.getElementById("brightness");
-var brightnessValue = document.getElementById("brightnessValue");
-// Slider change
-brightness.oninput = function(){
-    var value = this.value;    // Get the current slider value
-    ws.send(value);    // Send brightness value to the server
+    // ================================== 
+    // Experiment 3: Blue Light 
+    // ================================== 
+    else if(msg == "blue_on"){
+        blueBulb.style.backgroundColor = "#3b82f6";
+        blueBulb.style.boxShadow = "0 0 25px #3b82f6, 0 0 60px rgba(59, 130, 246, 0.5)";
+        blueButton.style.backgroundColor = "green";
+        blueButton.textContent = "Turn Off";
+        blueStatus.textContent = "Blue Light is ON";
+    }else if(msg == "blue_off"){
+        blueBulb.style.backgroundColor = "#374151";
+        blueBulb.style.boxShadow = "none";
+        blueButton.style.backgroundColor = "red";
+        blueButton.textContent = "Turn On";
+        blueStatus.textContent = "Blue Light is OFF";
+    }
+    // ==================================
+    // Experiment 3: Red Light
+    // ==================================
+    else if(msg == "red_on"){
+        redBulb.style.backgroundColor = "#ef4444";
+        redBulb.style.boxShadow = "0 0 25px #ef4444, 0 0 60px rgba(239, 68, 68, 0.5)";
+        redButton.style.backgroundColor = "green";
+        redButton.textContent = "Turn Off";
+        redStatus.textContent = "Red Light is ON";
+    }else if(msg == "red_off"){
+        redBulb.style.backgroundColor = "#374151";
+        redBulb.style.boxShadow = "none";
+        redButton.style.backgroundColor = "red";
+        redButton.textContent = "Turn On";
+        redStatus.textContent = "Red Light is OFF";
+    }
+    // ==================================
+    // Experiment 3: Green Light
+    // ==================================
+    else if(msg == "green_on"){
+        greenBulb.style.backgroundColor = "#22c55e";
+        greenBulb.style.boxShadow = "0 0 25px #22c55e, 0 0 60px rgba(34, 197, 94, 0.5)";
+        greenButton.style.backgroundColor = "green";
+        greenButton.textContent = "Turn Off";
+        greenStatus.textContent = "Green Light is ON";
+    }else if(msg == "green_off"){
+        greenBulb.style.backgroundColor = "#374151";
+        greenBulb.style.boxShadow = "none";
+        greenButton.style.backgroundColor = "red";
+        greenButton.textContent = "Turn On";
+        greenStatus.textContent = "Green Light is OFF";
+    }
+    // ==================================
+    // Unknown Message
+    // ==================================
+    else{
+        console.log("Unknown message from server:", msg);
+    }
 };
 
 

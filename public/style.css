@@ -211,6 +211,72 @@ input[type="range"]{
     font-size: 13px;
 }
 
+/* Experiment 3 */
+.experiment-three {
+    grid-column: 1 / -1;
+}
+
+/* RGB Lights Container */
+.rgb-lights {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Individual RGB Light */
+.rgb-light {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* RGB Bulbs */
+.rgb-bulb {
+    background: #374151;
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* RGB Buttons */
+.rgb-button {
+    width: 150px;
+    padding: 12px 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+/* Blue Button */
+.blue-button {
+    background: red;
+}
+
+/* Red Button */
+.red-button {
+    background: red;
+}
+
+/* Green Button */
+.green-button {
+    background: red;
+}
+
+/* Button Hover */
+.rgb-button:hover {
+    transform: translateY(-2px);
+}
+
 /* Footer */
 footer{
     padding: 22px;
@@ -231,5 +297,8 @@ footer{
         min-height: 500px;
     }header h1{
         font-size: 26px;
+    }
+    .rgb-lights {
+        grid-template-columns: 1fr;
     }
 }

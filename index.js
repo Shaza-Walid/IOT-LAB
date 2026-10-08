@@ -3,7 +3,7 @@ const app = express()
 
 const PORT = 3000
 
-// Serve style.css and script.js from the views folder
+// Serve style.css and script.js from the public folder
 app.use(express.static(__dirname+"/public"));
 
 app.get('/',function(req,res){
