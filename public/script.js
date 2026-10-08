@@ -14,7 +14,7 @@ var powerStatus = document.getElementById("powerStatus");
 
 // Button click
 powerButton.onclick = function(){
-    if(this.style.backgroundColor == "#006d77"){
+    if(this.style.backgroundColor == "rgb(0, 109, 119)"){
         ws.send("on");        // Send ON command to the server
     }else{
         ws.send("off");       // Send OFF command to the server
@@ -42,7 +42,7 @@ var blueBulb = document.getElementById("blueBulb");
 var blueButton = document.getElementById("blueButton");
 var blueStatus = document.getElementById("blueStatus");
 blueButton.onclick = function(){
-    if(this.style.backgroundColor == "#006d77"){
+    if(this.style.backgroundColor == "rgb(0, 109, 119)"){
         ws.send("blue_on");        // Send Blue ON command
     }else{
         ws.send("blue_off");        // Send Blue OFF command
@@ -54,7 +54,7 @@ var redBulb = document.getElementById("redBulb");
 var redButton = document.getElementById("redButton");
 var redStatus = document.getElementById("redStatus");
 redButton.onclick = function(){
-    if(this.style.backgroundColor == "#006d77"){
+    if(this.style.backgroundColor == "rgb(0, 109, 119)"){
         ws.send("red_on");        // Send Red ON command
     }else{
         ws.send("red_off");        // Send Red OFF command
@@ -66,7 +66,7 @@ var greenBulb = document.getElementById("greenBulb");
 var greenButton = document.getElementById("greenButton");
 var greenStatus = document.getElementById("greenStatus");
 greenButton.onclick = function(){
-    if (this.style.backgroundColor == "#006d77") {
+    if (this.style.backgroundColor == "rgb(0, 109, 119)") {
         ws.send("green_on");        // Send Green ON command
     }else{
         ws.send("green_off");        // Send Green OFF command
