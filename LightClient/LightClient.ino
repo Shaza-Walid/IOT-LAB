@@ -6,8 +6,8 @@ WebSocketsClient wsc;
 const char *ssid = "wifi name";
 const char *pass = "wifi password";
 
-#define SERVER  "IP Address."
-#define PORT    3000
+#define SERVER  "iot-lab-alpha.vercel.app"
+#define PORT    443
 #define URL     "/"
 
 #define LEDBLUE_PIN  D5
@@ -77,7 +77,7 @@ void setup(){
   Serial.println(WiFi.SSID());
   Serial.println(WiFi.localIP());
 
-  wsc.begin(SERVER, PORT, URL);
+  wsc.beginSSL(SERVER, PORT, URL);
   wsc.onEvent(websocketEvent);
   // try ever 1000 again if connection has failed
   wsc.setReconnectInterval(1000);

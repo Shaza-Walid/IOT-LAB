@@ -10,9 +10,14 @@ app.get('/',function(req,res){
     res.sendFile(__dirname+"/public/index.html");
 });
 
-const server = app.listen(PORT,function(){
-    console.log("Server is runinng at port "+PORT);
-});
+const server = require('http').createServer(app);
+
+// Run the server locally only (Vercel starts it by itself)
+if(require.main === module){
+    server.listen(PORT,function(){
+        console.log("Server is runinng at port "+PORT);
+    });
+}
 
 const SocketServer = require('ws').Server;
 const wss = new SocketServer({ server });
@@ -65,3 +70,6 @@ function broadcast(msg) {
 		}
 	});
 }
+
+// Vercel takes the server from here
+module.exports = server;

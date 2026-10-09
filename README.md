@@ -25,26 +25,26 @@ D6 --> 220 ohm --> red LED  --> GND
 D7 --> 220 ohm --> Green LED --> GND
 ```
 
-## Run
+## Run & Access
 
-**Server**
-```
-npm install
-npm start
-```
-`npm install` downloads the libraries listed in `package.json` (run it once). `npm start` runs the server with nodemon, so it restarts automatically when you edit the code.
+**Web Interface (Deployment)**
+The web server is deployed and live at **[IOT LAB](https://iot-lab-alpha.vercel.app/)**. 
+You can open this link directly in your browser or phone from anywhere to control the LEDs—no local server setup or `npm start` needed for clients!
 
-Then open `http://<computer-ip>:3000` in the browser.
+*(Note: If you are hosting/modifying the backend source code locally or on a cloud platform, you can still run `npm install` and `npm start` to manage the server).*
 
 **NodeMCU**
 1. Install the **WebSockets** library (by Markus Sattler) in the Arduino IDE.
-2. In `light_client.ino`, put your own Wi-Fi name, Wi-Fi password, and the computer's IP address in their places:
+2. In `light_client.ino`, put your own Wi-Fi name and Wi-Fi password:
    ```cpp
    const char *ssid = "YOUR_WIFI_NAME";
    const char *pass = "YOUR_WIFI_PASSWORD";
-   #define SERVER  "YOUR_COMPUTER_IP"   // example: 192.168.1.20
    ```
-   You can find the computer's IP by running `ipconfig` (look for the IPv4 Address of the Wi-Fi adapter).
+   *(Note: You can also run it locally by running `npm install` and `npm start` to manage the server and replacing these lines with your computer's local IP and port instead of using ipconfig for the full setup)*:
+   ```cpp
+   #define SERVER  "iot-lab-alpha.vercel.app"   
+   #define PORT    443
+   ```
 3. Upload the code to the board.
 
-> The computer, the phone, and the NodeMCU must be on the same Wi-Fi network.
+> The NodeMCU needs an internet connection via Wi-Fi to reach the deployed server, and you can control it from any network worldwide via the IOT LAB link.
